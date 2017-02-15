@@ -63,10 +63,9 @@ $ npm start
 
 ## References 
 
-- Trente's tech event : https://sites.google.com/a/trente.asia/trente-vietnam-guide/70-tech-event 
-- NodeJS : https://nodejs.org/en/
-- React : https://facebook.github.io/react/
-- Redux : http://redux.js.org/
+- NodeJS : https://nodejs.org/en
+- React : https://facebook.github.io/react
+- Redux : http://redux.js.org
 - Webpack dev server : https://webpack.github.io/docs/webpack-dev-server.html
-- W3school : http://www.w3schools.com/
-- Bootstrap : http://getbootstrap.com/
+- W3school : http://www.w3schools.com
+- Bootstrap : http://getbootstrap.com
