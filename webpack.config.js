@@ -1,7 +1,9 @@
+const path = require('path');
+
 module.exports = {
     entry: './main.js',
     output: {
-        path: './',
+        path: path.resolve(__dirname,'dist'),
         filename: 'index.js'
     },
     devServer: {
@@ -10,16 +12,16 @@ module.exports = {
         port: 3000
     },
     module: {
-        loaders: [{
+        rules: [{
             test: /\.js$|\.jsx$/,
             exclude: /node_modules/,
-            loader: 'babel',
+            loader: 'babel-loader',
             query: {
-                presets: ['es2015', 'react']
+                presets: ['env', 'react']
             }
         }]
     },
     resolve: {
-         extensions: ['', '.js', '.jsx'],
+         extensions: ['.js', '.jsx'],
     }
 }
