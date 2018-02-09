@@ -1,7 +1,7 @@
 {
-  "name": "react-challenge-anhpn",
-  "version": "1.0.0",
-  "description": "a challenge about react",
+  "name": "easy-poker-react",
+  "version": "1.0.1",
+  "description": "react example for study",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server"
