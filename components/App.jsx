@@ -1,6 +1,4 @@
-import React, {Component, PropTypes} from 'react';
-import { connect } from 'react-redux';
-import { addTodo } from '../redux/actions';
+import React, {Component} from 'react';
 import FirstProblem from './FirstProblem';
 import SecondProblem from './SecondProblem';
 
@@ -20,11 +18,11 @@ class App extends Component {
         //$( this.refs.toggleInput).bootstrapToggle('on');
     }
 
-    switchMode(e){
-        var isPokerRankingMode = false;
-        var classes = this.refs.problemMode.childNodes[0].className.split(" ");
-        for (var i=0;i<classes.length;i++) {
-            if(classes[i]=='off') {
+    switchMode(){
+        let isPokerRankingMode = false;
+        let classes = this.problemMode.childNodes[0].className.split(" ");
+        for (let i in classes) {
+            if(classes[i]==='off') {
                 isPokerRankingMode = true;
                 break;
             }
@@ -50,7 +48,7 @@ class App extends Component {
             <div >
                 <div className="main-menu">
                     <label>Problem : </label>
-                    <div ref = "problemMode" onClick={this.switchMode} style={{display:"inline-block"}}>
+                    <div ref = {(el) => this.problemMode = el} onClick={this.switchMode} style={{display:"inline-block"}}>
                          <input 
                             type="checkbox" 
                             defaultChecked 
@@ -68,7 +66,7 @@ class App extends Component {
                 </div>  
                 <hr/>
 
-               {this.state.isPokerTypeMode == true ? (
+               {this.state.isPokerTypeMode === true ? (
                     <FirstProblem />
                 ):(
                     <SecondProblem />

@@ -12,14 +12,29 @@ module.exports = {
         port: 3000
     },
     module: {
-        rules: [{
+        rules: [
+          {
             test: /\.js$|\.jsx$/,
             exclude: /node_modules/,
             loader: 'babel-loader',
             query: {
                 presets: ['env', 'react']
             }
-        }]
+          },
+          {
+            test: /\.js$|\.jsx$/,
+            exclude: /node_modules/,
+            use: [
+              {
+                loader: 'babel-loader',
+                query: {
+                  presets: ['env', 'react']
+                }
+              },
+              'eslint-loader'
+              ]
+          }
+        ]
     },
     resolve: {
          extensions: ['.js', '.jsx'],

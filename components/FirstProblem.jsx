@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { classifyCards } from '../redux/actions';
 import * as Const from '../defines/const';
@@ -11,9 +11,9 @@ class FirstProblem extends Component {
         
     }
 
-    handleSubmit(e) {
+    handleSubmit() {
 
-        var cardString = this.refs.inputData.value;
+        var cardString = this.inputData.value;
         if(cardString != "" || cardString.trim() !="") {
             const { dispatch } = this.props;
             dispatch(classifyCards(cardString.trim()));
@@ -23,17 +23,17 @@ class FirstProblem extends Component {
        
     }
 
-    handleChange(e) {
+    handleChange() {
         //   console.log("handle text change");
-        this.refs.resultarea.innerHTML = "";
-        this.refs.resultarea.className = "";
-        var data = this.refs.inputData.value;
+        this.resultarea.innerHTML = "";
+        this.resultarea.className = "";
+        var data = this.inputData.value;
         if(data.trim()=="") {
-            this.refs.submitButton.className = "btn btn-info disabled";
+            this.submitButton.className = "btn btn-info disabled";
         }else {
-            this.refs.submitButton.className = "btn btn-info";
+            this.submitButton.className = "btn btn-info";
         }
-        this.refs.inputData.className = "cls_test form-control";
+        this.inputData.className = "cls_test form-control";
 
     }
     
@@ -87,13 +87,13 @@ class FirstProblem extends Component {
             case Const.DATA_STATUS_FAILURE : {
                 element = resultData.data.message;
                 className = "alert alert-danger fade in ";           
-                this.refs.inputData.className+=" warning-focus";
+                this.inputData.className+=" warning-focus";
             }break;
             default: "";
         }
 
-        this.refs.resultarea.innerHTML = element;
-        this.refs.resultarea.className = className;
+        this.resultarea.innerHTML = element;
+        this.resultarea.className = className;
         
     }
     
@@ -108,7 +108,7 @@ class FirstProblem extends Component {
                             <label>Cards on hand: </label>
                             <div className="form-inline input-area">
                                 <input
-                                    ref="inputData"
+                                    ref={(e) => this.inputData = e}
                                     type="text"
                                     id="id-inputform"
                                     placeholder="List cards..."
@@ -120,7 +120,7 @@ class FirstProblem extends Component {
                                 <button
                                     type="submit"
                                     id="test"
-                                    ref="submitButton"
+                                    ref={(e) => this.submitButton = e}
                                     className="btn btn-info "
                                     onClick={this.handleSubmit.bind(this)}
                                 >
@@ -130,7 +130,7 @@ class FirstProblem extends Component {
                                                                                      
                         </div>
                                              
-                        <div ref="resultarea" id="resultarea"></div>                                           
+                        <div ref={(e) => this.resultarea = e} id="resultarea"></div>
                     </div>
                 </div>
                 
