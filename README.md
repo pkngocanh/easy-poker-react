@@ -28,7 +28,7 @@ This is easy 'Poker game' to understanding react/redux flow
 First, clone the repo via git:
 
 ```bash
-git clone https://gitlab.com/tte201610/react-anh.git your-project-name
+git clone https://github.com/pkngocanh/easy-poker-react.git
 ```
 
 And then install dependencies.
