@@ -31,7 +31,7 @@ module.exports = {
                   presets: ['env', 'react']
                 }
               },
-              'eslint-loader'
+              
               ]
           }
         ]
